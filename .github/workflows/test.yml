@@ -26,4 +26,6 @@ jobs:
 
     - name: Run Unit Tests
       id: tests
-      run: vstest.console.exe .\src\XUnitTestProject\bin\Debug\XUnitTestProject.dll
+      run: |
+        $testResultXmlFile = Get-ChildItem -Recurse .\XUnitTestProject.dll
+        vstest.console.exe $testResultXmlFile
