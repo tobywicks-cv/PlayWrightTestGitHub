@@ -15,6 +15,14 @@ namespace XUnitTestProject
             using (var playwright = await Playwright.CreateAsync())
             {
                 Console.WriteLine("After Playwright.CreateAsync");
+
+                using (var browserTask = playwright.Chromium.LaunchAsync())
+                {
+                    var browser = await browserTask;
+                    var page = await browser.NewPageAsync();
+
+                    await page.GotoAsync("https://playwright.dev");
+                }
             }
         }
     }
