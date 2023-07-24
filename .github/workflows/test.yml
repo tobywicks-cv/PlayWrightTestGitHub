@@ -18,11 +18,11 @@ jobs:
 #      run: msbuild -t:restore -p:RestorePackagesConfig=true .\src\Playwright.sln
 
     - name: Build Site
-      run: msbuild .\src\Playwright.sln /p:Configuration=release
+      run: msbuild .\src\Playwright.sln /p:Configuration=Debug
       
     - name: Setup VSTest Path
       uses: darenm/Setup-VSTest@v1.2
 
     - name: Run Unit Tests
       id: tests
-      run: vstest.console.exe .\src\XUnitTestProject\bin\Release\XUnitTestProject.dll
+      run: vstest.console.exe .\src\XUnitTestProject\bin\Debug\XUnitTestProject.dll
