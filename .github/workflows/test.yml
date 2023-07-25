@@ -25,9 +25,8 @@ jobs:
     - name: Setup VSTest Path
       uses: darenm/Setup-VSTest@v1.2
 
-    - uses: mxschmitt/action-tmate@v3
+    #- uses: mxschmitt/action-tmate@v3
 
     - name: Run Unit Tests
-      run: |
-        $testDll = Get-ChildItem -Recurse .\XUnitTestProject.dll
-        vstest.console.exe $testDll
+      shell: cmd
+      run: vstest.console.exe D:\a\PlayWrightTestGitHub\PlayWrightTestGitHub\src\XUnitTestProject\bin\Debug\xunittestproject.dll
