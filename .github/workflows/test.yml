@@ -17,8 +17,8 @@ jobs:
         path: ~\AppData\Local\ms-playwright
         key: playwright-browser
 
-    - name: Install Playwright Chrome
-      run: npx playwright install-deps chromium
+#    - name: Install Playwright Chrome
+#      run: npx playwright install-deps chromium
 
 #    - name: Add MSBUILD to PATH
 #      uses: microsoft/setup-msbuild@v1.0.2
@@ -33,11 +33,12 @@ jobs:
     - name: Setup VSTest Path
       uses: darenm/Setup-VSTest@v1.2
 
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v3
+#    - uses: mxschmitt/action-tmate@v3
 
     - name: Run Unit Tests
       id: tests
       run: |
+        $playwrightInstaller = Get-Childitem -Path .\src\XUnitTestProject\ -Recurse playwright.ps1
+        & $playwrightInstaller install
         $testDll = Get-ChildItem -Recurse .\XUnitTestProject.dll
         vstest.console.exe $testDll
