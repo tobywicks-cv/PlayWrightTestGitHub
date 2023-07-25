@@ -10,13 +10,20 @@ namespace XUnitTestProject
         [Fact]
         public async Task TestPlayWright()
         {
+            var browserTypeLaunchOptions = new BrowserTypeLaunchOptions()
+            {
+//#if DEBUG
+//                Headless = false,
+//#endif
+            };
+
             Console.WriteLine("Before Playwright.CreateAsync");
 
             using (var playwright = await Playwright.CreateAsync())
             {
                 Console.WriteLine("After Playwright.CreateAsync");
 
-                using (var browserTask = playwright.Chromium.LaunchAsync())
+                using (var browserTask = playwright.Chromium.LaunchAsync(browserTypeLaunchOptions))
                 {
                     var browser = await browserTask;
                     var page = await browser.NewPageAsync();

@@ -78,7 +78,7 @@ internal class StdIOTransport : IDisposable
         if (!IsClosed)
         {
             IsClosed = true;
-            TransportClosed.Invoke(this, closeReason);
+            TransportClosed?.Invoke(this, closeReason); //// TJW Added null check
             _readerCancellationSource?.Cancel();
             _process.StandardInput.Close();
             _process.WaitForExit();
