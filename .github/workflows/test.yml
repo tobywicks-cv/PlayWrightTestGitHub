@@ -8,6 +8,11 @@ jobs:
     runs-on: windows-latest
 
     steps:
+
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
+
+
     
     - uses: actions/checkout@v3
 
