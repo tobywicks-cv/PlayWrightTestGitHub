@@ -8,11 +8,6 @@ jobs:
     runs-on: windows-latest
 
     steps:
-
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v3
-
-
     
     - uses: actions/checkout@v3
 
@@ -37,6 +32,9 @@ jobs:
       
     - name: Setup VSTest Path
       uses: darenm/Setup-VSTest@v1.2
+
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
 
     - name: Run Unit Tests
       id: tests
