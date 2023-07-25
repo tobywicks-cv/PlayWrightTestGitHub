@@ -35,10 +35,12 @@ jobs:
 
 #    - uses: mxschmitt/action-tmate@v3
 
-    - name: Run Unit Tests
-      id: tests
+    - name: Install playwright
       run: |
         $playwrightInstaller = Get-Childitem -Path .\src\XUnitTestProject\ -Recurse playwright.ps1
         & $playwrightInstaller install
+
+    - name: Run Unit Tests
+      run: |
         $testDll = Get-ChildItem -Recurse .\XUnitTestProject.dll
         vstest.console.exe $testDll
