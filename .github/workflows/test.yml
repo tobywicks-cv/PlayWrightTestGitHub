@@ -11,8 +11,6 @@ jobs:
     
     - uses: actions/checkout@v3
 
-
-
     - name: Install Playwright
       run: |
         $playwrightInstaller = Get-Childitem -Path .\src\XUnitTestProject\ -Recurse playwright.ps1
@@ -21,10 +19,11 @@ jobs:
     - name: Setup VSTest Path
       uses: darenm/Setup-VSTest@v1.2
 
-    - uses: mxschmitt/action-tmate@v3
+    #- uses: mxschmitt/action-tmate@v3
 
     - name: Run Unit Tests
       run: |
         $env:DEBUG="pw:api pw:channel:command pw:channel:response pw:channel:event pw:dotnet"
-        $env:PWDEBUG="console"      
+        $env:PWDEBUG="console"
+        chcp 437
         vstest.console.exe .\src\XUnitTestProject\bin\Debug\xunittestproject.dll #/logger:"console;verbosity=detailed"
