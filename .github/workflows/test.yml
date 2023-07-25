@@ -10,7 +10,7 @@ jobs:
     steps:
     
     - uses: actions/checkout@v3
-\
+
     - name: Install Playwright
       run: |
         $playwrightInstaller = Get-Childitem -Path .\src\XUnitTestProject\ -Recurse playwright.ps1
