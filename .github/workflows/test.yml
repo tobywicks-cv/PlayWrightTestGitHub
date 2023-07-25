@@ -17,7 +17,7 @@ jobs:
         path: ~\AppData\Local\ms-playwright
         key: playwright-browser
 
-    - name: Install playwright
+    - name: Install Playwright
       run: |
         $playwrightInstaller = Get-Childitem -Path .\src\XUnitTestProject\ -Recurse playwright.ps1
         & $playwrightInstaller install
