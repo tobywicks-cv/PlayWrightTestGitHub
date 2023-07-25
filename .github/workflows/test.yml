@@ -27,4 +27,4 @@ jobs:
       run: |
         $env:DEBUG="pw:api pw:channel:command pw:channel:response pw:channel:event pw:dotnet"
         $env:PWDEBUG="console"      
-        vstest.console.exe .\src\XUnitTestProject\bin\Debug\xunittestproject.dll /logger:"console;verbosity=detailed"
+        vstest.console.exe .\src\XUnitTestProject\bin\Debug\xunittestproject.dll #/logger:"console;verbosity=detailed"
