@@ -28,5 +28,7 @@ jobs:
     #- uses: mxschmitt/action-tmate@v3
 
     - name: Run Unit Tests
-      shell: cmd
-      run: vstest.console.exe D:\a\PlayWrightTestGitHub\PlayWrightTestGitHub\src\XUnitTestProject\bin\Debug\xunittestproject.dll
+      run: |
+        $env:DEBUG="pw:api pw:channel:command pw:channel:response pw:channel:event pw:dotnet"
+        $env:PWDEBUG="console"      
+        vstest.console.exe .\src\XUnitTestProject\bin\Debug\xunittestproject.dll /logger:"console;verbosity=detailed"
