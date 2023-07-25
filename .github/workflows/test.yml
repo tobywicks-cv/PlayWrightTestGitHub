@@ -33,12 +33,12 @@ jobs:
     - name: Setup VSTest Path
       uses: darenm/Setup-VSTest@v1.2
 
-#    - uses: mxschmitt/action-tmate@v3
-
     - name: Install playwright
       run: |
         $playwrightInstaller = Get-Childitem -Path .\src\XUnitTestProject\ -Recurse playwright.ps1
         & $playwrightInstaller install
+
+    - uses: mxschmitt/action-tmate@v3
 
     - name: Run Unit Tests
       run: |
