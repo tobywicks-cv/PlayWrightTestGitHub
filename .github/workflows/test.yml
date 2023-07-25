@@ -17,26 +17,13 @@ jobs:
         path: ~\AppData\Local\ms-playwright
         key: playwright-browser
 
-#    - name: Install Playwright Chrome
-#      run: npx playwright install-deps chromium
-
-#    - name: Add MSBUILD to PATH
-#      uses: microsoft/setup-msbuild@v1.0.2
-      
-#    - name: Restore NuGet Packages
-#      shell: pwsh
-#      run: msbuild -t:restore -p:RestorePackagesConfig=true .\src\Playwright.sln
-
-#    - name: Build Site
-#      run: msbuild .\src\Playwright.sln /p:Configuration=Debug
-      
-    - name: Setup VSTest Path
-      uses: darenm/Setup-VSTest@v1.2
-
     - name: Install playwright
       run: |
         $playwrightInstaller = Get-Childitem -Path .\src\XUnitTestProject\ -Recurse playwright.ps1
         & $playwrightInstaller install
+
+    - name: Setup VSTest Path
+      uses: darenm/Setup-VSTest@v1.2
 
     - uses: mxschmitt/action-tmate@v3
 
